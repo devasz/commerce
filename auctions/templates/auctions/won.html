@@ -1,0 +1,39 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="h4 text-dark">Won Listings</div>
+        <div class="row">
+            {% for item in items %}
+                {% for i in item %}
+                    <div class="col-md-4">
+                        <div class="card mb-2 shadow-sm p-3 my-3 bg-white rounded">
+                            <span class="text-center h1 font-weight-light alert-light">
+                                <img src="{{ i.url }}" class="card-img-top" alt="&nbsp;No Image" width="100%">
+                            </span>
+                            <p class="card-title my-2 h5 text-dark">{{ i.title }}</p>
+                            <p class="card-text my-4 text-secondary"><em>{{ i.description }}</em></p>
+                            {% for j in wons %}
+                                {% if i.listingid == j.listingid %}
+                                    <p class="card-text mt-2 text-secondary font-weight-bold">Owner:
+                                        <span class="h6 text-success font-weight-bold"> {{ j.owner }}</span>
+                                    </p>
+                                    <p class="card-text mt-2 text-secondary font-weight-bold">Winner:
+                                        <span class="h6 text-success font-weight-bold"> {{ user.username }}</span>
+                                    </p>
+                                    <p class="card-text mt-2 text-secondary font-weight-bold">Winning Price:
+                                        <span class="h6 text-success font-weight-bold"> ${{ j.winprice }}.00</span>
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% empty %}
+                <div class="p-3">No Won Listings.</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+

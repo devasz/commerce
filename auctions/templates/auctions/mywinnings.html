@@ -1,0 +1,36 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="h4 text-dark">Winnings</div>
+        <div class="row">
+            {% for item in items %}
+                {% for i in item %}
+                    <div class="col-md-4">
+                        <div class="card mb-2 shadow-sm p-3 my-3 bg-white rounded">
+                            <span class="text-center h1 font-weight-light alert-light">
+                                <img src="{{ i.link }}" class="card-img-top" alt="&nbsp;No Image" width="100%">
+                            </span>
+                            <div class="card-title my-2 h6 text-dark">{{ i.title }}</div>
+                            <div class="card-text my-4 text-secondary small">{{ i.description }}</div>
+                            {% for j in wonitems %}
+                                {% if i.listingid == j.listingid %}
+                                    <div class="card-text mt-2 text-secondary">Winning Price:
+                                        <span class="h6 text-success font-weight-bold"> ${{ j.winprice }}</span>
+                                    </div>
+                                    <div class="card-text mt-2 text-secondary">Owner:
+                                        <span class="h6 text-success font-weight-bold"> {{ j.owner }}</span>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% empty %}
+                <div class="p-3">No Winnings.</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+

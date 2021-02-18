@@ -1,0 +1,25 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="h4 text-dark">Categories</div>
+        {% if items_count %}
+            <div class="row h5 p-2 ml-3 mt-3 mb-2 text-secondary">
+                Number of active offers in all categories:&nbsp;
+                <span class="font-weight-bold badge badge-secondary">{{ items_count }}</span>
+            </div>
+        {% endif %}
+
+        <div class="row">
+            {% for i in items %}
+                <div class="mr-2">
+                    <a href="{% url 'category' i.category %}"
+                       class="btn btn-block btn-sm btn-light p-2 mt-2 ml-5 mr-5 rounded border shadow-sm font-weight-bolder"><h4>{{ i.category }}</h4>
+                    </a>
+                </div>
+            {% empty %}
+                <div class=" p-3">No Categories Listed.</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
