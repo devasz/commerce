@@ -18,16 +18,16 @@ YouTube https://youtu.be/U57J0R6fpMk
     pip install django
     ````
     ````
-    py manage.py makemigrations
-    ````
-    ````
-    py manage.py migrate
-    ````
-    ````
     python manage.py createsuperuser
     ````
 
 * In the root folder, execute: 
+    ````
+    python manage.py makemigrations
+    ````
+    ````
+    python manage.py migrate
+    ````
     ````
     python manage.py runserver
     ````
