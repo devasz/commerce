@@ -5,6 +5,8 @@ Design an eBay-like e-commerce auction site that will allow users to post auctio
 ## Specification 
 Check https://cs50.harvard.edu/web/2020/projects/2/commerce/
 
+## Video
+YouTube https://youtu.be/U57J0R6fpMk
 
 ## Requirements to run the project
 
